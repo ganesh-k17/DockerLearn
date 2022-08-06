@@ -1,5 +1,9 @@
 {
     "spellchecker.ignoreWordsList": [
-        "Entrypoint"
+        "Entrypoint",
+        "ENTRYPOINT",
+        "ubuntu",
+        "dockerfile",
+        "Compose"
     ]
 }
