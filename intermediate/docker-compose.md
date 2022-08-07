@@ -89,6 +89,22 @@ worker:
         - db
 ```
 
-Docker compose - build:
+![docker-compose-intro 1](../images/docker-compose-4.jpg "docker-compose-intro")
 
-Below command is used 
+## How images get build
+
+![docker-compose-intro 1](../images/docker-compose-5.jpg "docker-compose-intro")
+
+In the above images redis and db (postgresSql) are predefined images but all the other apps
+(votes, result and worker) are custom images so as specified in the above images instead of
+giving the image name we can map the folder (which contains code and dockerFile) to buid.
+In this case (build), while building the compose file it create a temp image name for those
+custom built images and used as required.
+
+## Docker Compose - versions:
+
+![docker-compose-intro 1](../images/docker-compose-6.jpg "docker-compose-intro")
+
+## Networks:
+
+![docker-compose-network](../images/docker-compose-7.jpg "docker-compose-intro")
