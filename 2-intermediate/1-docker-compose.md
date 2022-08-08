@@ -108,3 +108,69 @@ custom built images and used as required.
 ## Networks:
 
 ![docker-compose-network](../images/docker-compose-7.jpg "docker-compose-intro")
+
+
+## Practice
+
+**Without docker compose:**
+
+```bash
+git clone https://github.com/dockersamples/example-voting-app.git
+
+cd vote/
+
+/vote:> cat Dockerfile
+
+docker build . -t voting-app
+
+docker run -p 5000:80 voting-app
+
+docker run -d --name=redis redis
+
+docker run -p 5000:80 --link redis:redis voting-app
+
+docker run -d --name=db postgres:9.4
+
+cd worker
+
+docker build . -t worker-app
+
+docker run --link redis:redis --link db:db worker-app
+
+docker ps
+
+docker build . -t result-app
+
+docker run -p 5001:80 --link db:db result-app
+
+```
+
+**With docker compose:**
+Note: We have to install docker compose
+
+```bash
+
+# if we already installed docker in our machine we can just docker compose since docker is prerequisite.
+
+> sudo apt-get update
+> sudo apt-get install docker-compose-plugin
+
+```
+
+Stop all the existing containers:
+
+```bash
+
+> docker stop 69 54 5b 2f 0b # we can just specify the first 2 character of the docker id.
+```
+
+![docker-compose](../images/docker-compose-8.jpg "docker-compose-intro")
+
+```bash
+
+Navigate to the application folder where docker-compose.yml file available
+
+> docker-compose up
+
+```
+
